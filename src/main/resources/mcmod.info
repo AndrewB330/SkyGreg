@@ -1,0 +1,16 @@
+[
+{
+  "modid": "skygreg",
+  "name": "SkyGreg",
+  "description": "Addon for GregTech5 Unofficial for sky block modpacks",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["AndreaB330"],
+  "credits": "Notch",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
