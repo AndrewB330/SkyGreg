@@ -1,9 +1,8 @@
 package skygreg.Items;
 
 import gregtech.api.enums.Materials;
-import gregtech.api.enums.OrePrefixes;
-import gregtech.api.util.GT_OreDictUnificator;
-import gregtech.api.util.GT_Utility;
+import net.minecraft.item.ItemStack;
+import skygreg.recipes.OreChunkRecipeLoader;
 
 public class OreChunkItem extends CustomItem {
     OreChunkItem() {
@@ -11,8 +10,9 @@ public class OreChunkItem extends CustomItem {
     }
 
     @Override
-    public void registerMaterial(Materials material) {
-        GT_OreDictUnificator.add(OrePrefixes.ore, material, GT_Utility.copyAmount(1, get(material)));
+    public void registerMaterial(Materials material, ItemStack stack) {
+        String oreDictName = "oreChunk" + material.mName;
+        OreChunkRecipeLoader.registerOre(material, stack);
     }
 
     @Override

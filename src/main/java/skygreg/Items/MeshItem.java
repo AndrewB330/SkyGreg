@@ -15,9 +15,9 @@ public class MeshItem extends CustomItem {
     }
 
     @Override
-    public void registerMaterial(Materials material) {
+    public void registerMaterial(Materials material, ItemStack stack) {
         GT_ModHandler.addCraftingRecipe(
-                GT_Utility.copyAmount(1L, get(material)),
+                GT_Utility.copyAmount(1L, stack),
                 GT_Proxy.tBits, new Object[]{
                         "SRS",
                         "RSR",

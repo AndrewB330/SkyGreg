@@ -23,7 +23,7 @@ public abstract class CustomItem {
         this.textureName = textureName;
     }
 
-    public abstract void registerMaterial(Materials material);
+    public abstract void registerMaterial(Materials materia, ItemStack stack);
 
     public abstract boolean doGenerateItem(Materials material);
 

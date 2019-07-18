@@ -1,6 +1,5 @@
 package skygreg.Items;
 
-import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.GregTech_API;
@@ -33,11 +32,8 @@ public class ItemGenerator extends GT_MetaGenerated_Item {
                 Materials material = GregTech_API.sGeneratedMaterials[i];
                 if (material == null) continue;
                 if (!item.doGenerateItem(material)) continue;
-                if (i!=material.mMetaItemSubID) {
-                    FMLLog.info("BLYAT");
-                }
                 int metaData = i + item.getItemId() * materialsNumber;
-                ItemStack itemStack = new ItemStack(this, 1,  metaData);
+                ItemStack itemStack = new ItemStack(this, 1, metaData);
                 itemStacks[metaData] = itemStack;
                 used[metaData] = false;
                 GT_LanguageManager.addStringLocalization(
@@ -54,7 +50,7 @@ public class ItemGenerator extends GT_MetaGenerated_Item {
             used[metaData] = true;
             int itemId = metaData / materialsNumber;
             int materialId = metaData % materialsNumber;
-            items[itemId].registerMaterial(GregTech_API.sGeneratedMaterials[materialId]);
+            items[itemId].registerMaterial(GregTech_API.sGeneratedMaterials[materialId], get(metaData));
         }
         return false;
     }
@@ -95,8 +91,8 @@ public class ItemGenerator extends GT_MetaGenerated_Item {
             for (int j = 0; j < materialsNumber; j++) {
                 Materials material = GregTech_API.sGeneratedMaterials[i];
                 if (material == null) continue;
-                if (items[i].doGenerateItem(material) && used[i*materialsNumber + j]) {
-                    aList.add(itemStacks[i*materialsNumber + j]);
+                if (items[i].doGenerateItem(material) && used[i * materialsNumber + j]) {
+                    aList.add(itemStacks[i * materialsNumber + j]);
                 }
             }
         }
